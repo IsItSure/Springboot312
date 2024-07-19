@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>UserForm</title>
 </head>
 <body>
-$END$
+<form th:method="POST" th:action="@{/saveUser}" th:object="${user}">
+    <fieldset>
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>Name<input type="text" th:field="*{firstName}" required="required"/></label>
+
+        <br>
+
+        <label>Surname<input type="text" th:field="*{lastName}" required="required"/></label>
+
+        <br>
+
+        <label>Age<input type="text" th:field="*{age}" required="required"/></label>
+
+        <br>
+
+        <button type="submit" th:text="${user.id == 0} ? 'Create' : 'Update'"/>
+
+        <br>
+        <br>
+
+        <a href="/">Get back</a>
+    </fieldset>
+</form>
 </body>
 </html>
