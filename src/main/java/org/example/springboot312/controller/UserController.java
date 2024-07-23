@@ -27,7 +27,7 @@ public class UserController {
     public String userList(Model model) {
         List<User> users = userServiceImpl.getUsers();
         model.addAttribute("users", users);
-        return "userList";
+        return "user-list";
     }
 
     @GetMapping("/userForm")
@@ -39,7 +39,7 @@ public class UserController {
             user = userServiceImpl.getUserById(id);
         }
         model.addAttribute("user", user);
-        return "userForm";
+        return "user-form";
     }
 
 
